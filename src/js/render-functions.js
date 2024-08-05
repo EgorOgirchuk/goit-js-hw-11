@@ -3,21 +3,33 @@ export function render(images) {
   images.forEach(image => {
     renderHtml += `
   <li class="gallery-item">
+    <div class='gallery-item-wrap'>
       <a href="${image.largeImageURL}" class="gallery-link">  
-            <img style="width:360px" 
-            src="${image.webformatURL}" 
-            class="gallery-image" 
-            />
+        <img src="${image.webformatURL}" class="gallery-image"  />
       </a>
-      <div>
-      <span>Likes: ${image.likes}</span>
-      <span>Views: ${image.views}</span>
-      <span>Comments: ${image.comments}</span>
-      <span>Downloads: ${image.downloads}</span>
+      <div class="gallery-item-description">
+          <div>
+            <h3>Likes</h3>
+            <p>${image.likes}</p>
+          </div>
+          <div>
+            <h3>Views</h3>
+            <p>${image.views}</p>
+          </div>
+          <div>
+            <h3>Comments</h3>
+            <p>${image.comments}</p>
+          </div>
+          <div>
+            <h3>Downloads</h3>
+            <p>${image.downloads}</p>
+          </div>
+        </ul
+    
       </div>
-  </li>
-
+    </div>
+    </li>
   `;
   });
-  return '<ul>' + renderHtml + '</ul>';
+  return renderHtml;
 }
